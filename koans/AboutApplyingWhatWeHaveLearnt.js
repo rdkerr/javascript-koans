@@ -115,7 +115,35 @@ describe("About Applying What We Have Learnt", function() {
     });
 
     it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-      expect(true).toBe(false);
+      var isPalindrome = function(number) {
+        return number.toString() === number.toString().split("").reverse().join("");
+      }
+
+      var hasValidFactors = function(number, minNum, maxNum) {
+        console.log
+        for (let i = maxNum ; i > minNum ; i--) {
+          if (i * maxNum < number) continue;
+          for (let j = maxNum ; j > minNum ; j --) {
+            if (i * j < number) continue;
+            if (i * j === number) return true;
+          }
+        }
+        return false;
+      }
+
+      var largestPalindrome= function(minNum, maxNum) {
+        var maxRange = maxNum * maxNum;
+        var minRange = minNum * minNum;
+        return _.range(maxRange,minRange,-1)
+              .filter(isPalindrome)
+              .find(num => hasValidFactors(num,minNum,maxNum));
+      }
+      expect(isPalindrome(123)).toBe(false);
+      expect(isPalindrome(12321)).toBe(true);
+      expect(isPalindrome(1234321)).toBe(true);
+      expect(hasValidFactors(12,1,12)).toBe(true);
+      expect(largestPalindrome(10,99)).toBe(9009);
+      expect(largestPalindrome(100,999)).toBe(906609);
     });
 
     it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
