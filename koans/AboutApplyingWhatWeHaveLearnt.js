@@ -96,7 +96,22 @@ describe("About Applying What We Have Learnt", function() {
   describe("Extra Credit", function() { 
 
     it("should find the largest prime factor of a composite number", function () {
-      expect(true).toBe(false);
+      var testNum = 544;
+      var isPrime = function(number) {
+        if (number <= 3) return true;
+        return 0 === _.range(2,(number/2)+1)
+            .filter(factor => number % factor === 0)
+            .reduce((a,b) => a + 1, 0);
+      }
+
+      var largestPrimeFactor = function(number) {
+        return _.range(1,number/2)
+            .filter(isPrime)
+            .filter((factor) => number % factor === 0)
+            .reduce((a,b) => b > a ? b : a);
+      }
+      expect(largestPrimeFactor(200)).toBe(5);
+      expect(largestPrimeFactor(544)).toBe(17);
     });
 
     it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
