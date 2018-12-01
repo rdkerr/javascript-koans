@@ -93,28 +93,27 @@ describe("About Applying What We Have Learnt", function() {
     expect(ingredientCount['mushrooms']).toBe(2);
   });
 
-  /*********************************************************************************/
-  /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-  it("should find the largest prime factor of a composite number", function () {
-  
+  describe("Extra Credit", function() { 
+
+    it("should find the largest prime factor of a composite number", function () {
+      expect(true).toBe(false);
+    });
+
+    it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
+      expect(true).toBe(false);
+    });
+
+    it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
+      expect(true).toBe(false);      
+    });
+
+    it("should find the difference between the sum of the squares and the square of the sums", function () {
+      expect(true).toBe(false);
+    });
+
+    it("should find the 10001st prime", function () {
+      expect(true).toBe(false);
+    });
   });
 
-  it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
-  });
-
-  it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
-    
-  });
-
-  it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
-  });
-
-  it("should find the 10001st prime", function () {
-
-  });
-  */
 });
