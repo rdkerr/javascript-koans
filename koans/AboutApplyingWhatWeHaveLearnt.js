@@ -99,7 +99,6 @@ describe("About Applying What We Have Learnt", function() {
       if (number % 3 === 0) return number === 3;
       return undefined === _.range(3,Math.floor(Math.sqrt(number)) + 1, 2)
           .find(factor => number % factor === 0);
-          
     }
 
     it("should find the largest prime factor of a composite number", function () {
@@ -180,7 +179,21 @@ describe("About Applying What We Have Learnt", function() {
     });
 
     it("should find the 10001st prime", function () {
-      expect(true).toBe(false);
+      var nextPrime = function(prime) {
+        return _.range(prime + 1,prime * prime)
+              .find(isPrime);
+      }
+      var nthPrime = function(n) {
+          let prime = 2; 
+          for (let i = 1 ; i < n ; i ++) {
+            prime = nextPrime(prime);
+          }
+          return prime;
+
+      }
+      expect(nthPrime(10)).toBe(29);
+      expect(nthPrime(100)).toBe(541);
+      //expect(nthPrime(1001)).toBe(7927);
     });
   });
 
