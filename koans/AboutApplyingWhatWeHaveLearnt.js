@@ -95,10 +95,11 @@ describe("About Applying What We Have Learnt", function() {
 
   describe("Extra Credit", function() { 
     var isPrime = function(number) {
-      if (number <= 3) return true;
-      return 0 === _.range(2,(number/2)+1)
-          .filter(factor => number % factor === 0)
-          .reduce((a,b) => a + 1, 0);
+      if (number % 2 === 0) return number === 2;
+      if (number % 3 === 0) return number === 3;
+      return undefined === _.range(3,Math.floor(Math.sqrt(number)) + 1, 2)
+          .find(factor => number % factor === 0);
+          
     }
 
     it("should find the largest prime factor of a composite number", function () {
