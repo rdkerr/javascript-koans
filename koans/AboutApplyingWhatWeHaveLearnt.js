@@ -168,7 +168,14 @@ describe("About Applying What We Have Learnt", function() {
     });
 
     it("should find the difference between the sum of the squares and the square of the sums", function () {
-      expect(true).toBe(false);
+      // a^2 + b^2 - (a + b)^2 => a^2 + b^2 - (a^2 + 2ab + b^2) => -2ab
+      var getDifference = function(num1, num2) {
+        return (-2  * num1 * num2);
+      }
+      expect(getDifference(3,4)).toBe(-24);
+      expect(getDifference(13,14)).toBe(-364);
+      expect(getDifference(33,44)).toBe(-2904);
+      expect(getDifference(3123,4123)).toBe(-25752258);
     });
 
     it("should find the 10001st prime", function () {
