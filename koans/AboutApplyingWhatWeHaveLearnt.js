@@ -172,28 +172,26 @@ describe("About Applying What We Have Learnt", function() {
       var getDifference = function(num1, num2) {
         return (-2  * num1 * num2);
       }
-      expect(getDifference(3,4)).toBe(-24);
-      expect(getDifference(13,14)).toBe(-364);
-      expect(getDifference(33,44)).toBe(-2904);
+      //expect(getDifference(3,4)).toBe(-24);
+      //expect(getDifference(13,14)).toBe(-364);
+      //expect(getDifference(33,44)).toBe(-2904);
       expect(getDifference(3123,4123)).toBe(-25752258);
     });
 
     it("should find the 10001st prime", function () {
-      var nextPrime = function(prime) {
-        return _.range(prime + 1,prime * prime)
-              .find(isPrime);
+      var nthPrimeSieve = function(n) {
+        let prime;
+        let count = 0;
+        let numbers = _.range(2, 10000);
+        for (let i = 0 ; i < n ; i ++) {
+          count += 1;
+          prime = numbers.shift();
+          numbers = numbers.filter(num => num % prime !== 0);
+        }
+        return prime;
       }
-      var nthPrime = function(n) {
-          let prime = 2; 
-          for (let i = 1 ; i < n ; i ++) {
-            prime = nextPrime(prime);
-          }
-          return prime;
-
-      }
-      expect(nthPrime(10)).toBe(29);
-      expect(nthPrime(100)).toBe(541);
-      //expect(nthPrime(1001)).toBe(7927);
+      //expect(nthPrimeSieve(500)).toBe(3571);
+      expect(nthPrimeSieve(1001)).toBe(7927);
     });
   });
 
